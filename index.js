@@ -1,46 +1,52 @@
-class localStorageService {
-    ls = window.localStorage;
-	
-	Obj = Object.create(null);
+/**
+ * Object Method
+ * @type {any}
+ */
+let obj = Object.create(null);
 
-	/**
-	 * Set name and value
-	 * @param name
-	 * @param value
-	 * @return {*}
-	 */
-    setVal(name, value) {
-		this.Obj[name] = value;
-        this.ls.setItem(name, value);
-        return true
-    }
-	
-	/**
-	 * Get value
-	 * @param name
-	 * @return {*}
-	 */
-    getVal(name) {
-		try {
-			return this.Obj[name];
-		} catch (e) {
-			return this.ls.getItem(name) ? this.ls.getItem(name): null;
-		}
-    }
+/**
+ * Local Method
+ * @type {Storage}
+ */
+let ls  = window.localStorage;
 
-	/**
-	 * Delete value
-	 * @param name
-	 * @return {*}
-	 */
-    delVal(name) {
-		this.Obj[name] = null;
-        this.ls.removeItem(name);
-    }
+/**
+ * Set name and value
+ * @param name
+ * @param value
+ * @return {*}
+ */
+function setVal (name, value) {
+	obj[name] = value;
+	ls.setItem(name, value);
+	return true
+}
+
+/**
+ * Get value
+ * @param name
+ * @return {*}
+ */
+function getVal (name) {
+	try {
+		return obj[name];
+	} catch (e) {
+		return ls.getItem(name) ? ls.getItem(name): null;
+	}
+}
+
+/**
+ * Delete value
+ * @param name
+ * @return {*}
+ */
+function delVal (name) {
+	obj[name] = null;
+	ls.removeItem(name);
 }
 
 module.exports = {
-    getVal: getVal,
-    setVal: setVal,
+	getVal: getVal,
+	setVal: setVal,
 	delVal: delVal
 }
