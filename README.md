@@ -1,18 +1,16 @@
-# passval
-Send and Get Object Values in ES6
-
-An easy way to save and passing values in deffrent components.
+# 
+Save and Get / Passing any values in ES6
 
 # Installation
 
-```sh
-$ npm install passval
+```
+$ npm i passv
 ```
 
 ## ES6
 
 ```
-import { setVal, getVal } from 'passval';
+import { setVal, getVal, delVal } from 'passv';
 ```
 
 ## Usage and Example
@@ -21,6 +19,7 @@ import { setVal, getVal } from 'passval';
 - Save value
 
 ```
+
 var name = "John Doe";
 setVal("username", name);
 ```
@@ -31,4 +30,10 @@ setVal("username", name);
 getVal("username"); // Output John Doe
 ```
 
-- You can get this value from any components in ES6.
+- Delete value
+
+```
+delVal("username");
+```
+
+- You can pass this values in any components on ES6.
