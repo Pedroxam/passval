@@ -28,11 +28,7 @@ function setVal (name, value) {
  * @return {*}
  */
 function getVal (name) {
-	try {
-		return obj[name];
-	} catch (e) {
-		return ls.getItem(name) ? ls.getItem(name): null;
-	}
+	return (obj[name] !== undefined) ? obj[name] : ls.getItem(name);
 }
 
 /**
